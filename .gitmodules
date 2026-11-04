@@ -1,0 +1,3 @@
+[submodule "lib/GOST_ESKD"]
+	path = lib/GOST_ESKD
+	url = https://github.com/efimova-d/GOST_ESKD.git
