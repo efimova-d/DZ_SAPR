@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "GOST_ESKD")(type "KiCad")(uri "${KIPRJMOD}/lib/GOST_ESKD/GOST_ESKD.pretty")(options "")(descr "Посадочные места проекта (git-сабмодуль lib/GOST_ESKD)"))
+)

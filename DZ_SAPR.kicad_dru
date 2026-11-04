@@ -1,0 +1,40 @@
+(version 1)
+
+# Технологические ограничения завода «Резонит»: двусторонняя плата,
+# уровень «Базовый» (4 класс точности), фольга 35 мкм.
+# Источник: https://www.rezonit.ru/pcb/odnostoronnie-i-dvustoronnie/serial/
+
+(rule "Rezonit: ширина проводника не менее 0,2 мм"
+   (constraint track_width (min 0.2mm)))
+
+(rule "Rezonit: зазор между элементами меди не менее 0,2 мм"
+   (constraint clearance (min 0.2mm)))
+
+(rule "Rezonit: металлизированное отверстие не менее 0,3 мм"
+   (constraint hole_size (min 0.3mm)))
+
+(rule "Rezonit: поясок переходного отверстия не менее 0,15 мм"
+   (condition "A.Type == 'Via'")
+   (constraint annular_width (min 0.15mm)))
+
+(rule "Rezonit: поясок монтажной площадки не менее 0,2 мм"
+   (condition "A.Type == 'Pad' && !A.memberOfFootprint('BK1')")
+   (constraint annular_width (min 0.2mm)))
+
+# TO-92 (BK1, шаг 1,27 мм): поясок 0,15 мм допустим только на уровне «Продвинутый» (5 класс).
+(rule "Rezonit: поясок площадок BK1 (TO-92) 0,15 мм - уровень Продвинутый"
+   (condition "A.Type == 'Pad' && A.memberOfFootprint('BK1')")
+   (constraint annular_width (min 0.15mm)))
+
+(rule "Rezonit: медь до фрезерованного контура не менее 0,25 мм"
+   (constraint edge_clearance (min 0.25mm)))
+
+(rule "Rezonit: маркировка (верх) - шрифт не менее 1 мм, линия не менее 0,15 мм"
+   (layer "F.Silkscreen")
+   (constraint text_height (min 1mm))
+   (constraint text_thickness (min 0.15mm)))
+
+(rule "Rezonit: маркировка (низ) - шрифт не менее 1 мм, линия не менее 0,15 мм"
+   (layer "B.Silkscreen")
+   (constraint text_height (min 1mm))
+   (constraint text_thickness (min 0.15mm)))

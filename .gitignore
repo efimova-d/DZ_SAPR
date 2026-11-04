@@ -1,0 +1,10 @@
+# Резервные и временные файлы KiCad
+*-backups/
+_autosave-*
+\#auto_saved_files\#
+*.lck
+~*.lck
+fp-info-cache
+*.kicad_prl
+*.bak
+*.tmp

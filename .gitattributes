@@ -1,0 +1,6 @@
+*.bat text eol=crlf
+*.sh  text eol=lf
+*.kicad_sch text eol=lf
+*.kicad_pcb text eol=lf
+*.pdf binary
+*.png binary
